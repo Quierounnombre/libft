@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   IsControl1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/12 12:02:48 by vicgarci         ###   ########.fr       */
+/*   Created: 2022/09/12 11:20:28 by vicgarci          #+#    #+#             */
+/*   Updated: 2022/09/12 11:52:44 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT
-# define LIBFT
-
-/*IsControl1*/
-int	ft_isalpha(int c);
-
-#endif
+int	ft_isalpha(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (2002);
+	else if (c >= 'A' && c <= 'Z')
+		return (2401);
+	return (0);
+}
