@@ -6,13 +6,14 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/13 10:51:38 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:00:42 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include "string.h"
+# include "stdlib.h"
 
 /*IsControl1*/
 int		ft_isalpha(int c);
@@ -28,4 +29,13 @@ size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size);
 char	*ft_strchr(const char *src, unsigned int c);
 char	*ft_strrchr(const char *src, unsigned int c);
 
+/*StrFuns2*/
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+
+/*StrFuns3*/
+char	*ft_strtrim(char const *s1, char const *set);
 #endif

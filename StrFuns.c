@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:03:12 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/13 12:13:54 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/13 13:55:31 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,22 +76,25 @@ char	*ft_strchr(const char *src, unsigned int c)
 char	*ft_strrchr(const char *src, unsigned int c)
 {
 	int	i;
+	int	j;
 
 	if (src == NULL)
 		return (NULL);
 	i = ft_strlen(src);
+	j = i;
 	while (i)
 	{
 		src++;
 		i--;
 	}
-	while (*src)
+	while (j)
 	{
 		if (*src == (char)c)
 		{
 			return ((char *)src);
 		}
 		src--;
+		j--;
 	}
 	return (NULL);
 }
