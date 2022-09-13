@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/13 16:57:58 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/13 18:37:35 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 int main(void)
 {
-	char *s1 = "Hola MUndo";
-	char *s2 = " Soy vicente";
-	char *s3 = ft_strjoin(s1, s2);
+	char *s1 = "aaHolaBBMudnoa";
+	char *set = "ab";
+	char *s3 = ft_strtrim(s1, set);
 	printf("S1: %s\n", s1);
-	printf("S2: %s\n", s2);
+	printf("S2: %s\n", set);
 	printf("S3: %s\n", s3);
 	free(s3);
 	/*
