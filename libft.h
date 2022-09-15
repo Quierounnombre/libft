@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/13 18:02:52 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/14 17:37:57 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 
 /*StrFuns3*/
 char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
 //1 Static
 
 #endif

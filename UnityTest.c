@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/13 18:37:35 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:00:40 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 
 int main(void)
 {
+	int i = 1;
+	char *s = "Hola/Mundo";
+	char **s2 = ft_split(s, '/');
+	
+	while (i != -1)
+	{
+		printf("S%d: %s\n", i, s2[i]);
+		free(s2[i]);
+		i--;
+	}
+	free (s2);
+	/*
 	char *s1 = "aaHolaBBMudnoa";
 	char *set = "ab";
 	char *s3 = ft_strtrim(s1, set);
@@ -23,6 +35,7 @@ int main(void)
 	printf("S2: %s\n", set);
 	printf("S3: %s\n", s3);
 	free(s3);
+	*/
 	/*
 	char *s1 = "Hola Mundogasdg";
 	char *s2 = "sd";
