@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 19:08:06 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 20:58:57 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int c);
 /*1 Static*/
 
+/*StrFuns5*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 /*MemsFuns*/
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -65,5 +69,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 /* 0 Static*/
 
-//faltan iteri, mapi, putchar, putstr, putend, putnbr, slipt + bonus
+//faltan putchar, putstr, putend, putnbr, slipt + bonus, revisa restrict
 #endif

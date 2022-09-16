@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 19:05:31 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 20:58:28 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 #include "stdlib.h"
 #include "libft.h"
 
+char ft_printlen(unsigned int i, char s)
+{
+	printf("He aumentado la letra en %d de %c a %c\n", i, s, ft_toupper((int) s));
+	return ft_toupper((int) s);
+}
+
 int main(void)
 {
-	char *s;
-	s = ft_itoa();
-	printf("%s", s);
-	free (s);
+	char *s = "gola";
+	char *s2 = ft_strmapi(s, &ft_printlen);
+	printf("%s", s2);
+	free(s2);
 	/*
 	int i = 1;
 	char *s = "Hola/Mundo";
