@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/15 20:57:34 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:45:45 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,26 @@ char	*ft_strjoin(char const *s1, char const *s2);
 /*StrFuns3*/
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
-//1 Static ft_split necesita reacerse aloca +1 bit y no hace free en caso de error, + los otros
+//3 Static ft_split necesita reacerse aloca +1 bit y no 
+//hace free en caso de error, + los otros
+
+/*StrFuns4*/
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+int		ft_atoi(const char *str);
+/*0 Static*/
 
 /*MemsFuns*/
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+void	*ft_memchr(const void *s, int c, size_t n);
+/*0 Static*/
+
+/*MemsFuns2*/
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+/* 0 Static*/
+
 #endif

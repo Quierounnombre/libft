@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/15 21:26:04 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:14:55 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 
 int main(void)
 {
-	char s[] = "AA";
-	char s1[] = "BB";
-	printf("%s", ft_memmove(s, s1, 0));
+	char s1[] = "   +42";
+	printf("%d", ft_atoi(s1));
 	/*
 	int i = 1;
 	char *s = "Hola/Mundo";

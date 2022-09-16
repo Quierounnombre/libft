@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 19:05:36 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/15 21:25:18 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 13:10:36 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
-	return dst;
+	return (dst);
 }
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
@@ -58,16 +58,40 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (aux1 == NULL || aux2 == NULL)
 		return (NULL);
 	if (dst > src)
+	{
 		while (len)
 		{
 			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
 			len--;
 		}
+	}
 	else
+	{
 		while (len--)
 		{
 			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 			i++;
 		}
-	return dst;
+	}
+	return (dst);
+}
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	static int	i;
+
+	if (s == NULL)
+		return (NULL);
+	while (((unsigned char *)s)[i] != '\0' && n != 0)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+		{
+			while (i-- != 0)
+				s++;
+			return ((void *)s);
+		}
+		i++;
+		n--;
+	}
+	return (NULL);
 }
