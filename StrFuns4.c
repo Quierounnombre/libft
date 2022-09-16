@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:09:04 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 15:14:20 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:04:50 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,50 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (i * neg);
+}
+
+static int	ft_power(int base, int times)
+{
+	int c;
+
+	c = 1;
+	while (times--)
+		c *= base;
+	return (c);
+}
+
+char	*ft_itoa(int c)
+{
+	static int	i;
+	int			temp;
+	char		*s;
+	static int	neg;
+	int			cc;
+
+	temp = c;
+	if (c < 0)
+		neg = 1;
+	while (temp != 0)
+	{
+		i++;
+		temp = temp / 10;
+	}
+	s = ft_calloc(i, sizeof(char));
+	if (s == NULL)
+		return (NULL);
+	cc = c;
+	if (neg == 1)
+	{
+		s[temp] = '-';
+		temp++;
+		cc = c * -1;
+	}
+	while (i)
+	{
+		s[temp] = (cc / ft_power(10, i - 1)) + '0';
+		i--;
+		temp++;
+		cc = cc % ft_power(10, i);
+	}
+	return (s);
 }

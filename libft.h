@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 14:45:45 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:08:06 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	**ft_split(char const *s, char c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_atoi(const char *str);
-/*0 Static*/
+char	*ft_itoa(int c);
+/*1 Static*/
 
 /*MemsFuns*/
 void	*ft_memset(void *b, int c, size_t len);
@@ -64,4 +65,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 /* 0 Static*/
 
+//faltan iteri, mapi, putchar, putstr, putend, putnbr, slipt + bonus
 #endif

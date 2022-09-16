@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 15:14:55 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:05:31 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 
 int main(void)
 {
-	char s1[] = "   +42";
-	printf("%d", ft_atoi(s1));
+	char *s;
+	s = ft_itoa();
+	printf("%s", s);
+	free (s);
 	/*
 	int i = 1;
 	char *s = "Hola/Mundo";
