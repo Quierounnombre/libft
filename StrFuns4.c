@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:09:04 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 20:57:37 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 21:58:21 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,48 +48,50 @@ int	ft_atoi(const char *str)
 	return (i * neg);
 }
 
-static int	ft_power(int base, int times)
+char	*ft_itoa_aux(int c, char *s, int len, int neg)
 {
-	int c;
+	int	temp;
+	int	tlen;
 
-	c = 1;
-	while (times--)
-		c *= base;
-	return (c);
+	temp = c;
+	len--;
+	tlen = len;
+	while (len--)
+	{
+		s[len] = (temp % 10) + '0';
+		temp = temp / 10;
+	}
+	if (neg == -1)
+		s[len] = '-';
+	s[tlen] = '\0';
+	return (s);
 }
 
 char	*ft_itoa(int c)
 {
-	static int	i;
-	int			temp;
 	char		*s;
-	static int	neg;
-	int			cc;
+	int			temp;
+	static int	len;
+	int			neg;
 
-	temp = c;
+	if (c == -214748368)
+		return (ft_strdup("-2147483648"));
 	if (c < 0)
-		neg = 1;
-	while (temp != 0)
 	{
-		i++;
-		temp = temp / 10;
+		neg = -1;
+		len++;
 	}
-	s = ft_calloc(i, sizeof(char));
-	if (s == NULL)
-		return (NULL);
-	cc = c;
-	if (neg == 1)
+	neg = 1;
+	temp = c;
+	while (temp)
 	{
-		s[temp] = '-';
-		temp++;
-		cc = c * -1;
+		temp /= 10;
+		len++;
 	}
-	while (i)
+	s = (char *)malloc ((len + 1) * sizeof(char));
+	if (s)
 	{
-		s[temp] = (cc / ft_power(10, i - 1)) + '0';
-		i--;
-		temp++;
-		cc = cc % ft_power(10, i);
+		return (ft_itoa_aux(c, s, len + 1, neg));
 	}
-	return (s);
+	return (NULL);
 }

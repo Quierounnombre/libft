@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:48:02 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 20:58:40 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 19:23:37 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (s2);
 }
-

@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:13:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 20:58:57 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 20:47:39 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include "string.h"
 # include "stdlib.h"
+# include "unistd.h"
 
 /*IsControl1*/
 int		ft_isalpha(int c);
@@ -25,8 +26,8 @@ int		ft_isprint(int c);
 
 /*StrFuns*/
 size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size);
-size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *src, unsigned int c);
 char	*ft_strrchr(const char *src, unsigned int c);
 //0 Static
@@ -69,5 +70,11 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 /* 0 Static*/
 
-//faltan putchar, putstr, putend, putnbr, slipt + bonus, revisa restrict
+/*PutFuns*/
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+//faltan bonus, revisa restrict
 #endif

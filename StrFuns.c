@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:03:12 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 20:46:55 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 20:47:50 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
@@ -39,7 +39,7 @@ size_t	ft_strlcpy(char *restrict dest, const char *restrict src, size_t size)
 	return (i);
 }
 
-size_t	ft_strlcat(char * dest, const char * src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t		i;
 	size_t		j;

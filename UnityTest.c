@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 20:58:28 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 21:57:58 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@ char ft_printlen(unsigned int i, char s)
 
 int main(void)
 {
+	char	*s = ft_itoa(-2147483648);
+	printf("Valor: %s", s);
+	free (s);
+	/*
 	char *s = "gola";
 	char *s2 = ft_strmapi(s, &ft_printlen);
 	printf("%s", s2);
 	free(s2);
-	/*
-	int i = 1;
-	char *s = "Hola/Mundo";
+	*/
+/*
+	int i = 3;
+	char *s = "Hola/Mundo/ /";
 	char **s2 = ft_split(s, '/');
 	
 	while (i != -1)

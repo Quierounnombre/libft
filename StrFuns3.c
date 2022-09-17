@@ -6,15 +6,15 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:02:41 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/15 16:07:26 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/17 20:44:01 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	check_backwards(char const *s1, char const *set);
-static int	number_of_mallocs(char const *s, char c);
-static int	calc_dist(char const *s, char c);
+char		**ft_check(char **s, int j);
+char		*ft_store(char *s, char c, char *s2);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -75,63 +75,81 @@ static int	check_backwards(char const *s1, char const *set)
 
 char	**ft_split(char const *s, char c)
 {
-	int		templen;
-	int		i[2];
-	char	**s2;
+	static int	i;
+	static int	j;
+	char		**s2;
 
-	i[0] = 0;
-	i[1] = 0;
-	s2 = (char **)malloc (number_of_mallocs(s, c) * sizeof(char *));
-	if (s2 == NULL)
-		return (NULL);
-	while (s && *s != '\0')
+	while (s[j] != '\0')
 	{
-		templen = ft_strlen(s) - (calc_dist(s, c));
-		s2[i[1]] = (char *)malloc(sizeof(char) * (templen + 1));
-		if (s2[i[1]] == NULL)
-			return (NULL);
-		while (templen-- != 0)
+		if (s[j] == c)
+			i++;
+		j++;
+	}
+	s2 = (char **)malloc ((i + 1) * sizeof(char *));
+	j = (i + 1);
+	i = 0;
+	if (s2 != NULL)
+	{
+		while (i != j)
 		{
-			if (*s != c)
-				s2[i[1]][i[0]++] = *s;
+			s2[i] = ft_store((char *)s, c, s2[i]);
+			s = (const char *)strchr(s, c);
 			s++;
+			i++;
 		}
-		s2[i[1]++][i[0]] = '\0';
-		i[0] = 0;
+		return (ft_check(s2, j));
+	}
+	return (NULL);
+}
+
+char	*ft_store(char *s, char c, char *s2)
+{
+	int	j;
+	int	i;
+
+	i = 0;
+	j = 0;
+	while (1)
+	{
+		if (s[j] == c || s[j] == '\0')
+		{
+			s2 = (char *)malloc ((j + 1) * sizeof(char));
+			if (s2 == NULL)
+				return (NULL);
+			while (i != j)
+			{
+				s2[i] = *s;
+				s++;
+				i++;
+			}
+			s2[i] = '\0';
+			return (s2);
+		}
+		j++;
 	}
 	return (s2);
 }
 
-static int	number_of_mallocs(char const *s, char c)
+char	**ft_check(char **s, int j)
 {
-	int	i;
+	static int	i;
+	static int	error;
 
-	i = 0;
-	while (s && *s != '\0')
+	while (i != j)
 	{
-		if (*s == c)
-			i++;
-		s++;
+		if (s[i] == NULL)
+			error = 1;
+		i++;
 	}
-	return (i + 1);
-}
-
-static int	calc_dist(char const *s, char c)
-{
-	int	i;
-	int	flag;
-
 	i = 0;
-	flag = 0;
-	while (s && *s != '\0')
+	if (error)
 	{
-		if (flag == 1)
-			i++;
-		else if (*s == c)
+		while (i != j)
 		{
-			flag = 1;
+			free(s[i]);
 		}
-		s++;
+		free (s);
+		return (NULL);
 	}
-	return (i);
+	return (s);
 }
