@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StrFuns5.c                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:48:02 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:43:22 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:57:34 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	size = ft_strlen(s) + 1;
 	s2 = malloc(size * sizeof(char));
+	if (!s2)
+		return (NULL);
 	while (*s != '\0')
 	{
 		s2[i] = f(i, *s);
 		s++;
 		i++;
 	}
+	s2[i] = '\0';
 	return (s2);
 }

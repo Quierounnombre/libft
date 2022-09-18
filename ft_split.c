@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StrFuns3.c                                         :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:02:41 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:30:03 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:39:47 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char		**ft_check(char **s, int j);
-char		*ft_store(char *s, char c, char *s2);
+static int	ft_count_words(const char *str, char c);
+static int	ft_next_word(const char *str, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	static int	i;
-	static int	j;
-	char		**s2;
+	int		i;
+	int		j;
+	int		temp;
+	char	**s2;
 
-	while (s[j] != '\0')
-	{
-		if (s[j] == c)
-			i++;
-		j++;
-	}
-	s2 = (char **)malloc ((i + 1) * sizeof(char *));
-	j = (i + 1);
+	if (!s)
+		return (NULL);
+	i = ft_count_words(s, c);
+	s2 = (char **)malloc ((i) * sizeof(char *));
+	j = (i);
 	i = 0;
 	if (s2 != NULL)
 	{
 		while (i != j)
 		{
-			s2[i] = ft_store((char *)s, c, s2[i]);
-			s = (const char *)strchr(s, c);
-			s++;
+			temp = ft_next_word(s, c);
+			s2[i] = ft_substr(s, 0, temp);
+			while (temp--)
+				s++;
 			i++;
 		}
 		return (ft_check(s2, j));
@@ -44,32 +44,47 @@ char	**ft_split(char const *s, char c)
 	return (NULL);
 }
 
-char	*ft_store(char *s, char c, char *s2)
+static int	ft_next_word(const char *str, char c)
 {
-	int	j;
 	int	i;
 
 	i = 0;
-	j = 0;
-	while (1)
+	while (*str != '\0')
 	{
-		if (s[j] == c || s[j] == '\0')
+		i++;
+		str++;
+		if (*str == c)
 		{
-			s2 = (char *)malloc ((j + 1) * sizeof(char));
-			if (s2 == NULL)
-				return (NULL);
-			while (i != j)
+			while (*str == c)
 			{
-				s2[i] = *s;
-				s++;
-				i++;
+			i++;
+			str++;
 			}
-			s2[i] = '\0';
-			return (s2);
+			return (i);
 		}
-		j++;
 	}
-	return (s2);
+	return (i);
+}
+
+static int	ft_count_words(const char *str, char c)
+{
+	int	i;
+	int	trigger;
+
+	i = 1;
+	trigger = 0;
+	while (*str)
+	{
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
+	}
+	return (i);
 }
 
 char	**ft_check(char **s, int j)

@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:29:34 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:47:45 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 20:09:34 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ static int	check_backwards(char const *s1, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		j;
-	char	*s2;
-	int		flag;
+	static int	j;
+	char		*s2;
+	int			flag;
 
 	flag = 1;
-	j = 0;
 	while (flag)
 	{
 		flag = 0;
@@ -31,42 +30,40 @@ char	*ft_strtrim(char const *s1, char const *set)
 			{
 				flag = 1;
 				s1++;
+				j = -1;
 			}
 			j++;
 		}
-		j = 0;
 	}
-	s2 = malloc ((int)ft_strlen(s1) - check_backwards(s1, set) * sizeof(char));
-	if (!s2)
-		return (NULL);
-	ft_strlcpy(s2, s1, (int)ft_strlen(s1) - check_backwards(s1, set));
+	s2 = ft_substr(s1, 0, check_backwards(s1, set));
 	return (s2);
 }
 
 static int	check_backwards(char const *s1, char const *set)
 {
-	int	flag;
-	int	lenset;
-	int	lens1;
-	int	j;
+	int			flag;
+	int			lenset;
+	int			lens1;
+	static int	j;
 
-	j = 0;
 	lenset = ft_strlen(set);
-	lens1 = ft_strlen(set);
+	lens1 = ft_strlen(s1) - 1;
 	flag = 1;
 	while (flag)
 	{
 		flag = 0;
-		while ((int)ft_strlen(set) != j)
+		while (lenset != j)
 		{
-			if (set[j] == s1[lens1])
+			if (set[j] == s1[lens1] && lens1 >= 0)
 			{
 				flag = 1;
-				lens1--;
+				lens1 = lens1 - 1;
+				j = -1;
 			}
 			j++;
 		}
-		j = 0;
 	}
-	return (lens1 - 1);
+	if (lens1 != 0)
+		return (lens1 + 1);
+	return (0);
 }

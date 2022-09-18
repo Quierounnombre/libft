@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:41:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:42:03 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:13:52 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-	int			i;
+	static int	i;
 	static int	neg;
 
 	neg = 1;
@@ -26,9 +26,11 @@ int	ft_atoi(const char *str)
 		neg = -1;
 		str++;
 	}
+	else if (*str == '+')
+		str++;
 	while (*str >= '0' && *str <= '9')
 	{
-		i = i * 10 + *str - '0';
+		i = (i * 10) + (*str - '0');
 		str++;
 	}
 	return (i * neg);

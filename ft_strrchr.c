@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StrFuns.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:03:12 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:22:36 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 17:14:35 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ char	*ft_strrchr(const char *src, unsigned int c)
 		return (NULL);
 	i = ft_strlen(src);
 	j = i;
-	while (i)
-	{
+	while (i--)
 		src++;
-		i--;
-	}
-	while (j)
+	while (j != -1)
 	{
 		if (*src == (char)c)
 		{
@@ -35,5 +32,7 @@ char	*ft_strrchr(const char *src, unsigned int c)
 		src--;
 		j--;
 	}
+	if (c == '\0')
+		return ((char *)src);
 	return (NULL);
 }

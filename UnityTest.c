@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/17 21:57:58 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 20:30:15 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,21 @@ char ft_printlen(unsigned int i, char s)
 
 int main(void)
 {
+	/*
 	char	*s = ft_itoa(-2147483648);
 	printf("Valor: %s", s);
 	free (s);
+	*/
 	/*
 	char *s = "gola";
 	char *s2 = ft_strmapi(s, &ft_printlen);
 	printf("%s", s2);
 	free(s2);
 	*/
-/*
-	int i = 3;
-	char *s = "Hola/Mundo/ /";
-	char **s2 = ft_split(s, '/');
-	
+
+	int i = 11;
+	//char *s = "Hola/Mundo/ /";
+	char **s2 = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
 	while (i != -1)
 	{
 		printf("S%d: %s\n", i, s2[i]);
@@ -43,10 +44,10 @@ int main(void)
 		i--;
 	}
 	free (s2);
-	*/
+
 	/*
-	char *s1 = "aaHolaBBMudnoa";
-	char *set = "ab";
+	char *s1 = "          ";
+	char *set = " ";
 	char *s3 = ft_strtrim(s1, set);
 	printf("S1: %s\n", s1);
 	printf("S2: %s\n", set);

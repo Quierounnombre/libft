@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:20:09 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:20:38 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 16:53:32 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	i;
+	static size_t	i;
 
-	i = 0;
-	while (src[i] != '\0' && i < size)
+	if (!src)
+		return (0);
+	if (size > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	dest[i] = '\0';
-	return (i);
+	return (ft_strlen(src));
 }
