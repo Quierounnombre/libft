@@ -6,72 +6,11 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:03:12 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/17 20:47:50 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/18 00:22:36 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (*s != '\0')
-	{
-		s++;
-		i++;
-	}
-	return (i);
-}
-
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i] != '\0' && i < size)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (i);
-}
-
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
-{
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0' && (j < size))
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (j);
-}
-
-char	*ft_strchr(const char *src, unsigned int c)
-{
-	if (src == NULL)
-		return (NULL);
-	while (*src != '\0')
-	{
-		if (*src == (char)c)
-		{
-			return ((char *)src);
-		}
-		src++;
-	}
-	return (NULL);
-}
 
 char	*ft_strrchr(const char *src, unsigned int c)
 {

@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MemsFuns2.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 13:13:12 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/16 14:33:14 by vicgarci         ###   ########.fr       */
+/*   Created: 2022/09/18 00:51:07 by vicgarci          #+#    #+#             */
+/*   Updated: 2022/09/18 14:38:54 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*cs1;
-	unsigned char	*cs2;
+	static size_t	i;
+	char			*aux1;
+	char			*aux2;
 
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	while (n)
-	{
-		if (*cs1 != *cs2)
-			return ((int)(*cs1 - *cs2));
-		n--;
-		cs1++;
-		cs2++;
-	}
-	return (0);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*s1;
-
-	s1 = malloc(count * size);
-	if (s1 == NULL)
+	aux1 = (char *)dst;
+	aux2 = (char *)src;
+	if (aux1 == NULL || aux2 == NULL)
 		return (NULL);
-	ft_bzero(s1, count * size);
-	return (s1);
+	if (dst > src)
+	{
+		while (len--)
+			aux1[len] = aux2[len];
+	}
+	else
+	{
+		while (len != i)
+		{
+			aux1[i] = aux2[i];
+			i++;
+		}
+	}
+	return (dst);
 }
