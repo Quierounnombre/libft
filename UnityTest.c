@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:53:08 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 20:30:15 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:59:19 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,36 @@
 #include "stdlib.h"
 #include "libft.h"
 
-char ft_printlen(unsigned int i, char s)
-{
-	printf("He aumentado la letra en %d de %c a %c\n", i, s, ft_toupper((int) s));
-	return ft_toupper((int) s);
-}
-
 int main(void)
 {
-	/*
-	char	*s = ft_itoa(-2147483648);
-	printf("Valor: %s", s);
-	free (s);
-	*/
+	
+	t_list	*lst;
+	t_list	*node;
+		
+	node = ft_lstnew("inicio");
+	ft_lstadd_front(&lst, node);
+	node = ft_lstnew("final");
+	ft_lstadd_back(&lst, node);
+	printf("%s\n", (char *)lst->next->content);
+	
 	/*
 	char *s = "gola";
 	char *s2 = ft_strmapi(s, &ft_printlen);
 	printf("%s", s2);
 	free(s2);
 	*/
-
+	/*
 	int i = 11;
 	//char *s = "Hola/Mundo/ /";
-	char **s2 = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	char **s2 = ft_split("          ", ' ');
 	while (i != -1)
 	{
-		printf("S%d: %s\n", i, s2[i]);
+		//printf("S%d: %s\n", i, s2[i]);
 		free(s2[i]);
 		i--;
 	}
 	free (s2);
-
+	*/
 	/*
 	char *s1 = "          ";
 	char *set = " ";
