@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:41:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 18:13:52 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:36:20 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	ft_atoi(const char *str)
 {
-	static int	i;
-	static int	neg;
+	int	i;
+	int	neg;
 
+	i = 0;
 	neg = 1;
 	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f'
 		|| *str == '\r' || *str == ' ')

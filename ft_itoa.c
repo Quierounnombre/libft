@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   StrFuns4.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:09:04 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:41:41 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/19 13:47:14 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,60 @@
 char	*ft_itoa_aux(int c, char *s, int len, int neg)
 {
 	int	temp;
-	int	tlen;
 
-	temp = c;
 	len--;
-	tlen = len;
-	while (len--)
+	s[len] = '\0';
+	temp = c * neg;
+	if (temp == 0)
 	{
-		s[len] = (temp % 10) + '0';
+		s[0] = '0';
+		s[1] = '\0';
+	}
+	while (temp > 0)
+	{
+		s[--len] = (temp % 10) + '0';
 		temp = temp / 10;
 	}
 	if (neg == -1)
-		s[len] = '-';
-	s[tlen] = '\0';
+		s[0] = '-';
 	return (s);
 }
 
-char	*ft_itoa(int c)
+static int	ft_calclen(int temp)
 {
-	char		*s;
-	int			temp;
-	static int	len;
-	int			neg;
+	int	len;
 
-	if (c == -214748368)
-		return (ft_strdup("-2147483648"));
-	if (c < 0)
-	{
-		neg = -1;
-		len++;
-	}
-	neg = 1;
-	temp = c;
+	len = 0;
+	if (temp == 0)
+		return (1);
 	while (temp)
 	{
 		temp /= 10;
 		len++;
 	}
+	return (len);
+}
+
+char	*ft_itoa(int c)
+{
+	char	*s;
+	int		temp;
+	int		len;
+	int		neg;
+
+	len = 0;
+	if (c <= -2147483648)
+		return (ft_strdup("-2147483648"));
+		neg = 1;
+	if (c < 0)
+	{
+		neg = -1;
+		len++;
+	}
+	if (c == 0)
+		len++;
+	temp = c;
+	len = ft_calclen(temp) + len;
 	s = (char *)malloc ((len + 1) * sizeof(char));
 	if (s)
 	{

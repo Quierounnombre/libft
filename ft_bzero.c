@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:49:24 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 00:49:38 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:36:38 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	static size_t	i;
+	size_t	i;
 
+	i = 0;
 	while (i != n)
 	{
 		((unsigned char *)s)[i] = 0;

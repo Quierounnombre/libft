@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 00:51:07 by vicgarci          #+#    #+#             */
-/*   Updated: 2022/09/18 14:38:54 by vicgarci         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:41:32 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	static size_t	i;
-	char			*aux1;
-	char			*aux2;
+	size_t	i;
+	char	*aux1;
+	char	*aux2;
 
+	i = 0;
 	aux1 = (char *)dst;
 	aux2 = (char *)src;
 	if (aux1 == NULL || aux2 == NULL)
