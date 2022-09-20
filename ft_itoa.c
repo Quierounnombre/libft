@@ -59,7 +59,7 @@ char	*ft_itoa(int c)
 	len = 0;
 	if (c <= -2147483648)
 		return (ft_strdup("-2147483648"));
-		neg = 1;
+	neg = 1;
 	if (c < 0)
 	{
 		neg = -1;
