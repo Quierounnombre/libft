@@ -16,7 +16,8 @@
 
 int main(void)
 {
-	
+	printf("%d\n", ft_atoi("1000"));
+	/*
 	t_list	*lst;
 	t_list	*node;
 		
@@ -25,6 +26,7 @@ int main(void)
 	node = ft_lstnew("final");
 	ft_lstadd_back(&lst, node);
 	printf("%s\n", (char *)lst->next->content);
+	*/
 	
 	/*
 	char *s = "gola";
