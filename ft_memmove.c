@@ -19,10 +19,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*aux2;
 
 	i = 0;
+	if (!src && !dst)
+		return (NULL);
 	aux1 = (char *)dst;
 	aux2 = (char *)src;
-	if (aux1 == NULL || aux2 == NULL)
-		return (NULL);
 	if (dst > src)
 	{
 		while (len--)

@@ -17,8 +17,6 @@ char	*ft_strrchr(const char *src, unsigned int c)
 	int	i;
 	int	j;
 
-	if (src == NULL)
-		return (NULL);
 	i = ft_strlen(src);
 	j = i;
 	while (i--)

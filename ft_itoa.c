@@ -65,10 +65,10 @@ char	*ft_itoa(int c)
 		neg = -1;
 		len++;
 	}
-	if (c == 0)
-		len++;
 	temp = c;
 	len = ft_calclen(temp) + len;
+	if (c == 0)
+		len = 1;
 	s = (char *)malloc ((len + 1) * sizeof(char));
 	if (s)
 	{

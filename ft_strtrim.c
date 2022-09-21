@@ -20,6 +20,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char		*s2;
 	int			flag;
 
+	if (!s1 || !set)
+		return (NULL);
 	flag = 1;
 	while (flag)
 	{
