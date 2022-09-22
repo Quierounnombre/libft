@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
+BON_NAME = .
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -80,8 +81,10 @@ OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-bonus: $(OBJS_B)
+$(BON_NAME): $(OBJS_B)
 	$(AR) $(NAME) $^
+
+bonus: $(BON_NAME)
 
 all: $(NAME)
 
