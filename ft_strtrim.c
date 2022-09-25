@@ -12,60 +12,55 @@
 
 #include "libft.h"
 
-static int	check_backwards(char const *s1, char const *set);
+static int	get_first(const char *s1, char const *set)
+{
+	int	i;
+	int	len;
+
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
+	{
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
+		i++;
+	}
+	return (i);
+}
+
+static int	get_last(const char *s1, char const *set)
+{
+	int	i;
+	int	len;
+
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
+	{
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
+			break ;
+		i++;
+	}
+	return (len - i);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	static int	j;
-	char		*s2;
-	int			flag;
+	int		i;
+	int		j;
+	char	*s;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
-	flag = 1;
-	while (flag)
-	{
-		flag = 0;
-		while ((int)ft_strlen(set) != j)
-		{
-			if (set[j] == *s1)
-			{
-				flag = 1;
-				s1++;
-				j = -1;
-			}
-			j++;
-		}
-	}
-	s2 = ft_substr(s1, 0, check_backwards(s1, set));
-	return (s2);
-}
-
-static int	check_backwards(char const *s1, char const *set)
-{
-	int			flag;
-	int			lenset;
-	int			lens1;
-	static int	j;
-
-	lenset = ft_strlen(set);
-	lens1 = ft_strlen(s1) - 1;
-	flag = 1;
-	while (flag)
-	{
-		flag = 0;
-		while (lenset != j)
-		{
-			if (set[j] == s1[lens1] && lens1 >= 0)
-			{
-				flag = 1;
-				lens1 = lens1 - 1;
-				j = -1;
-			}
-			j++;
-		}
-	}
-	if (lens1 != 0)
-		return (lens1 + 1);
-	return (0);
+	if (!set)
+		return (ft_strdup(s1));
+	i = get_first(s1, set);
+	j = get_last(s1, set);
+	if (i >= j)
+		return (ft_strdup(""));
+	s = (char *)malloc (sizeof(char) * (j - i + 1));
+	if (!s)
+		return (NULL);
+	ft_strlcpy(s, s1 + i, j - i + 1);
+	return (s);
 }
