@@ -56,15 +56,15 @@ FILES = ft_calloc \
 		
 		
 
-FILES_B = 	ft_lstnew \
-	  		ft_lstadd_front \
-	  		ft_lstsize \
-	  		ft_lstlast \
-	  		ft_lstadd_back \
-	  		ft_lstdelone \
-	  		ft_lstclear \
-	  		ft_lstiter \
-	  		ft_lstmap
+FILES_B = 	ft_lstnew_bonus \
+	  		ft_lstadd_front_bonus \
+	  		ft_lstsize_bonus \
+	  		ft_lstlast_bonus \
+	  		ft_lstadd_back_bonus \
+	  		ft_lstdelone_bonus \
+	  		ft_lstclear_bonus \
+	  		ft_lstiter_bonus \
+	  		ft_lstmap_bonus
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
