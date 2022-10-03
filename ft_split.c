@@ -46,7 +46,7 @@ static char	*word_dup(const char *str, int start, int finish)
 	return (word);
 }
 
-char	**ft_check(char **s, int j)
+static char	**ft_check(char **s, int j)
 {
 	int	i;
 	int	error;
